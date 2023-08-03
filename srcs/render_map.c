@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 00:21:25 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/01 00:53:57 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/03 23:21:08 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ void	store_map(t_prog *mlx)
 		i++;
 	}
 	close(fd);
+	check_square(&*mlx);
+	check_walls(&*mlx);
+	check_lines(&*mlx);
 }
 
 void	render_player(t_prog *mlx, int i, int j)

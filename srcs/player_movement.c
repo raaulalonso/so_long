@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:52:50 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/01 00:48:58 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/03 22:57:44 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	move_player(t_prog *mlx, int direction, int img)
 
 int	press_key(int key, t_prog *mlx)
 {
-	static int	i = 0;
+	static int	i = 1;
 
 	if (key == KEY_ESC)
 		exit_game(&*mlx);

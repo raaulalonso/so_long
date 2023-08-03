@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:06 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/01 00:23:34 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/03 23:27:16 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	exit_game(t_prog *mlx)
 
 int	main(int argc, char **argv)
 {
-	t_prog	mlx;
-	int		j;
-	int		fd;
+	t_prog		mlx;
+	int			j;
+	int			fd;
 
 	j = 0;
 	if (argc != 2)
