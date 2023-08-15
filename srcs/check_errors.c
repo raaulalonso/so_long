@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 22:53:18 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/03 23:34:39 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/15 20:44:46 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,7 @@ void	check_lines(t_prog *mlx)
 
 	i = 0;
 	j = 0;
-	mlx->num_players = 0;
-	mlx->num_exits = 0;
+	inicialize_var(&*mlx);
 	while (j < mlx->map_height)
 	{
 		while (mlx->map[j][i] != '\n')
@@ -95,8 +94,9 @@ void	check_lines(t_prog *mlx)
 				mlx->num_players++;
 			else if (mlx->map[j][i] == 'E')
 				mlx->num_exits++;
-			else if (mlx->map[j][i] != '1' && mlx->map[j][i] != '0'
-				&& mlx->map[j][i] != 'C')
+			else if (mlx->map[j][i] == 'C')
+				mlx->num_collect++;
+			else if (mlx->map[j][i] != '1' && mlx->map[j][i] != '0')
 				error_msg(3, &*mlx);
 			i++;
 		}

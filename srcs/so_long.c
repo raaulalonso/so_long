@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:06 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/03 23:27:16 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/15 20:43:38 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ void	exit_game(t_prog *mlx)
 	mlx_clear_window(mlx->mlx, mlx->win);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	exit(0);
+}
+
+void	inicialize_var(t_prog *mlx)
+{
+	mlx->num_players = 0;
+	mlx->num_exits = 0;
+	mlx->num_collect = 0;
+	mlx->collect_taken = 0;
 }
 
 int	main(int argc, char **argv)
