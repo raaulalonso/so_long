@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/15 21:59:35 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/19 23:13:07 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,14 @@ typedef struct s_program
 {
 	void	*mlx;
 	void	*win;
-	char	*img_path[8];
-	void	*img_ptr[8];
+	char	*img_path[9];
+	void	*img_ptr[9];
 	int		map_width;
 	int		map_height;
 	int		player_x;
 	int		player_y;
+	int		exit_x;
+	int		exit_y;
 	char	**map;
 	char	*map_path;
 	int		num_players;
@@ -57,6 +59,7 @@ void	error_msg(int type, t_prog *mlx);
 void	check_square(t_prog *mlx);
 void	check_lines(t_prog *mlx);
 void	inicialize_var(t_prog *mlx);
+void	store_exit(t_prog *mlx, int i, int j);
 
 # ifndef BUFFER_SIZE
 # define BUFFER_SIZE 42

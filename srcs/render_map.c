@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 00:21:25 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/03 23:21:08 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/19 22:37:30 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	init_img(t_prog *mlx)
 	mlx->img_path[5] = "img/player_left.xpm";
 	mlx->img_path[6] = "img/player_down.xpm";
 	mlx->img_path[7] = "img/player_up.xpm";
-	while (i < 8)
+	mlx->img_path[8] = "img/open.xpm";
+	while (i < 9)
 	{
 		mlx->img_ptr[i] = mlx_xpm_file_to_image(mlx->mlx, mlx->img_path[i],
 				&width, &height);

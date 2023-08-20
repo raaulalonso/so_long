@@ -13,7 +13,7 @@ $(NAME): $(OBJS)
 	arch -x86_64 $(CC) $(OBJS) -o $(NAME) $(LBFLAGS) 
 
 srcs/%.o: srcs/%.c
-	arch -x86_64 $(CC) $(CFLAGS) -c $< -o $@
+	arch -x86_64 $(CC) -g $(CFLAGS) -c $< -o $@
 
 clean:
 	make clean -C libft

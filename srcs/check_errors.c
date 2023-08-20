@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 22:53:18 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/15 20:44:46 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/19 23:14:09 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void	check_lines(t_prog *mlx)
 			if (mlx->map[j][i] == 'P')
 				mlx->num_players++;
 			else if (mlx->map[j][i] == 'E')
-				mlx->num_exits++;
+				store_exit(&*mlx, i, j);
 			else if (mlx->map[j][i] == 'C')
 				mlx->num_collect++;
 			else if (mlx->map[j][i] != '1' && mlx->map[j][i] != '0')

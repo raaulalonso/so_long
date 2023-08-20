@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:06 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/15 20:43:38 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/20 01:06:09 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,15 @@ void	exit_game(t_prog *mlx)
 {
 	mlx_clear_window(mlx->mlx, mlx->win);
 	mlx_destroy_window(mlx->mlx, mlx->win);
+	free(mlx->map_path);
 	exit(0);
+}
+
+void	store_exit(t_prog *mlx, int i, int j)
+{
+	mlx->num_exits++;
+	mlx->exit_x = i * 32;
+	mlx->exit_y = j * 32;
 }
 
 void	inicialize_var(t_prog *mlx)

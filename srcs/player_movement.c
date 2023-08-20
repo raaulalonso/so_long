@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:52:50 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/15 21:36:43 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/19 23:14:35 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,18 @@ void	move_player(t_prog *mlx, int direction, int img)
 		mlx->player_x * 32, mlx->player_y * 32);
 }
 
+void	check_exit(t_prog *mlx)
+{
+	if (mlx->collect_taken == mlx->num_collect)
+	{
+		mlx_put_image_to_window(mlx->mlx, mlx->win,
+			mlx->img_ptr[8], mlx->exit_x, mlx->exit_y);
+	}
+}
+
 int	press_key(int key, t_prog *mlx)
 {
+	check_exit(&*mlx);
 	if (key == KEY_ESC)
 		exit_game(&*mlx);
 	if (mlx->map[mlx->player_y][mlx->player_x + 1] != '1'
