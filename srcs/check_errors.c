@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 22:53:18 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/19 23:14:09 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:40:32 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	error_msg(int type, t_prog *mlx)
 {
 	if (type == 1)
-		printf("Error_1 :Invalid map, not surrounded by walls.\n");
+		printf("Error_1 :Invalid map, not surrounded by walls or not square.\n");
 	if (type == 2)
-		printf("Error_1 :Invalid map, multiple/non players or exits.\n");
+		printf("Error_2 :Invalid map, multiple/non players/exits/collect.\n");
 	if (type == 3)
-		printf("Error_1 :Invalid map, invalid characters.\n");
+		printf("Error_3 :Invalid map, invalid characters.\n");
 	exit_game(&*mlx);
 }
 
@@ -67,7 +67,7 @@ void	check_square(t_prog *mlx)
 	j = 0;
 	while (j < mlx->map_height)
 	{
-		while (mlx->map[j][i] != '\n')
+		while (mlx->map[j][i] != '\n' && mlx->map[j][i] != '\0')
 		{
 			i++;
 		}
@@ -88,7 +88,7 @@ void	check_lines(t_prog *mlx)
 	inicialize_var(&*mlx);
 	while (j < mlx->map_height)
 	{
-		while (mlx->map[j][i] != '\n')
+		while (mlx->map[j][i] != '\n' && mlx->map[j][i] != '\0')
 		{
 			if (mlx->map[j][i] == 'P')
 				mlx->num_players++;
@@ -97,12 +97,12 @@ void	check_lines(t_prog *mlx)
 			else if (mlx->map[j][i] == 'C')
 				mlx->num_collect++;
 			else if (mlx->map[j][i] != '1' && mlx->map[j][i] != '0')
-				error_msg(3, &*mlx);
+				error_msg(1, &*mlx);
 			i++;
 		}
 		i = 0;
 		j++;
 	}
-	if (mlx->num_players != 1 || mlx->num_exits != 1)
+	if (mlx->num_players != 1 || mlx->num_exits != 1 || mlx->num_collect < 1)
 		error_msg(2, &*mlx);
 }

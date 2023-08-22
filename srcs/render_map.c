@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 00:21:25 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/19 22:37:30 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:06:02 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@ void	create_window(t_prog *mlx)
 	char	*line;
 
 	mlx->map_width = 0;
-	mlx->map_height = 0;
+	mlx->map_height = 1;
 	fd = open(mlx->map_path, O_RDONLY);
 	line = get_next_line(fd);
 	mlx->map_width = ft_strlen(line) - 1;
-	close(fd);
-	fd = open(mlx->map_path, O_RDONLY);
+	free(line);
 	while (get_next_line(fd))
 		mlx->map_height++;
 	close(fd);
@@ -108,4 +107,5 @@ void	render_map(t_prog *mlx, int j, int fd)
 			render_player(&*mlx, i, j);
 		i++;
 	}
+	free(line);
 }

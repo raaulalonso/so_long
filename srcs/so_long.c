@@ -6,13 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:06 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/20 01:06:09 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:56:26 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/so_long.h"
 
-void	ft2_strcpy(t_prog *mlx, char *str)
+int	ft2_strcpy(t_prog *mlx, char *str)
 {
 	int	i;
 
@@ -20,6 +20,8 @@ void	ft2_strcpy(t_prog *mlx, char *str)
 	while (str[i] != '\0')
 		i++;
 	mlx->map_path = (char *)malloc(sizeof(char) * i + 1);
+	if (mlx->map_path == NULL)
+		return (1);
 	i = 0;
 	while (str[i] != '\0')
 	{
@@ -27,13 +29,24 @@ void	ft2_strcpy(t_prog *mlx, char *str)
 		i++;
 	}
 	mlx->map_path[i] = '\0';
+	return (0);
 }
 
 void	exit_game(t_prog *mlx)
 {
+	size_t	a;
+
+	a = 0;
 	mlx_clear_window(mlx->mlx, mlx->win);
 	mlx_destroy_window(mlx->mlx, mlx->win);
-	free(mlx->map_path);
+	while (a < 9)
+	{
+		mlx_destroy_image(mlx->mlx, mlx->img_ptr[a]);
+		mlx->img_ptr[a] = NULL;
+		a++;
+	}
+	mlx->mlx = NULL;
+	mlx->win = NULL;
 	exit(0);
 }
 
@@ -64,7 +77,8 @@ int	main(int argc, char **argv)
 		printf("Error\n");
 		exit(0);
 	}
-	ft2_strcpy(&mlx, argv[1]);
+	if (ft2_strcpy(&mlx, argv[1]) == 1)
+		return (0);
 	mlx.mlx = mlx_init();
 	create_window(&mlx);
 	init_img(&mlx);

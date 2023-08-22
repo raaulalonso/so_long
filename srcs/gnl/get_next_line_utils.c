@@ -6,11 +6,11 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 22:04:27 by raalonso          #+#    #+#             */
-/*   Updated: 2023/07/28 03:17:47 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:28:59 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/so_long.h"
+#include "../../incl/so_long.h"
 
 char	*ft_strjoin_v2(char *stash, char *buffer)
 {

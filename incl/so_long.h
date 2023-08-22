@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/19 23:13:07 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:36:29 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define SO_LONG_H
 
 # include <mlx.h>
-# include "../libft/libft.h"
-
 # include <stdio.h>
 # include <fcntl.h>
 # include <stdlib.h>
@@ -62,7 +60,7 @@ void	inicialize_var(t_prog *mlx);
 void	store_exit(t_prog *mlx, int i, int j);
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 42
+#  define BUFFER_SIZE 42
 # endif
 
 char	*get_next_line(int fd);
