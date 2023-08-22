@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:52:50 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/22 16:46:49 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/23 00:52:03 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	check_exit(t_prog *mlx)
 	if (mlx->collect_taken == mlx->num_collect)
 	{
 		mlx_put_image_to_window(mlx->mlx, mlx->win,
-			mlx->img_ptr[8], mlx->exit_x, mlx->exit_y);
+			mlx->img_ptr[3], mlx->exit_x, mlx->exit_y);
 	}
 }
 
@@ -72,8 +72,13 @@ void	move_player(t_prog *mlx, int direction, int img)
 
 int	press_key(int key, t_prog *mlx)
 {
+	static int	k = 8;
+
+	if (k == 13)
+		k = 8;
 	if (key == KEY_ESC)
 		exit_game(&*mlx);
+	animate(&*mlx, k);
 	if (mlx->map[mlx->player_y][mlx->player_x + 1] != '1'
 		&& (mlx->map[mlx->player_y][mlx->player_x + 1]
 		!= 'E' || mlx->collect_taken == mlx->num_collect) && key == KEY_D)
@@ -90,5 +95,6 @@ int	press_key(int key, t_prog *mlx)
 		&& (mlx->map[mlx->player_y][mlx->player_x - 1]
 		!= 'E' || mlx->collect_taken == mlx->num_collect) && key == KEY_A)
 		move_player(&*mlx, KEY_A, 5);
+	k++;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 00:21:25 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/22 17:06:02 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/22 23:44:47 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ void	init_img(t_prog *mlx)
 	mlx->img_path[0] = "img/floor.xpm";
 	mlx->img_path[1] = "img/wall.xpm";
 	mlx->img_path[2] = "img/exit.xpm";
-	mlx->img_path[3] = "img/collectible.xpm";
+	mlx->img_path[3] = "img/open.xpm";
 	mlx->img_path[4] = "img/player_right.xpm";
 	mlx->img_path[5] = "img/player_left.xpm";
 	mlx->img_path[6] = "img/player_down.xpm";
 	mlx->img_path[7] = "img/player_up.xpm";
-	mlx->img_path[8] = "img/open.xpm";
+	mlx->img_path[8] = "img/collect_1.xpm";
 	while (i < 9)
 	{
 		mlx->img_ptr[i] = mlx_xpm_file_to_image(mlx->mlx, mlx->img_path[i],
@@ -99,7 +99,7 @@ void	render_map(t_prog *mlx, int j, int fd)
 				mlx->img_ptr[0], i * 32, j * 32);
 		else if (line[i] == 'C')
 			mlx_put_image_to_window(mlx->mlx, mlx->win,
-				mlx->img_ptr[3], i * 32, j * 32);
+				mlx->img_ptr[8], i * 32, j * 32);
 		else if (line[i] == 'E')
 			mlx_put_image_to_window(mlx->mlx, mlx->win,
 				mlx->img_ptr[2], i * 32, j * 32);
