@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 23:28:53 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/23 00:51:49 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:00:45 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	init_animate_images(t_prog *mlx)
 	mlx->img_path[10] = "img/collect_3.xpm";
 	mlx->img_path[11] = "img/collect_4.xpm";
 	mlx->img_path[12] = "img/collect_5.xpm";
-	while (i < 13)
+	mlx->img_path[13] = "img/collect_6.xpm";
+	mlx->img_path[14] = "img/collect_7.xpm";
+	mlx->img_path[15] = "img/collect_8.xpm";
+	while (i < 16)
 	{
 		mlx->img_ptr[i] = mlx_xpm_file_to_image(mlx->mlx, mlx->img_path[i],
 				&width, &height);
@@ -33,13 +36,30 @@ void	init_animate_images(t_prog *mlx)
 	}
 }
 
-void	animate(t_prog *mlx, int k)
+void	check_delay(int *k, int *delay)
+{
+	if (*k == 15 && *delay == 25)
+	{
+		*k = 8;
+		*delay = 0;
+	}
+	else if (*delay == 25)
+	{
+		*k = *k + 1;
+		*delay = 0;
+	}
+}
+
+int	animate(t_prog *mlx)
 {
 	int			i;
 	int			j;
+	static int	k = 8;
+	static int	delay = 0;
 
 	i = 0;
 	j = 0;
+	check_delay(&k, &delay);
 	init_animate_images(&*mlx);
 	while (j < mlx->map_height)
 	{
@@ -53,4 +73,6 @@ void	animate(t_prog *mlx, int k)
 		i = 0;
 		j++;
 	}
+	delay++;
+	return (0);
 }
