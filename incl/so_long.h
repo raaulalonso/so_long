@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/23 16:54:57 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:18:10 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_program
 
 void	move_player(t_prog *mlx, int direction, int img);
 int		press_key(int key, t_prog *mlx);
-void	exit_game(t_prog *mlx);
+int		exit_game(t_prog *mlx);
 void	render_map(t_prog *mlx, int j, int fd);
 void	store_map(t_prog *mlx);
 void	init_img(t_prog *mlx);

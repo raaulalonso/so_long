@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:52:07 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/23 16:59:25 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:17:47 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft2_strcpy(t_prog *mlx, char *str)
 	return (0);
 }
 
-void	exit_game(t_prog *mlx)
+int	exit_game(t_prog *mlx)
 {
 	size_t	a;
 
@@ -48,6 +48,7 @@ void	exit_game(t_prog *mlx)
 	mlx->mlx = NULL;
 	mlx->win = NULL;
 	exit(0);
+	return (0);
 }
 
 void	store_exit(t_prog *mlx, int i, int j)
