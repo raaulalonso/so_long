@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/23 17:18:10 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/04 22:05:28 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_program
 
 void	move_player(t_prog *mlx, int direction, int img);
 int		press_key(int key, t_prog *mlx);
-int		exit_game(t_prog *mlx);
+int		exit_game(t_prog *mlx, int type);
 void	render_map(t_prog *mlx, int j, int fd);
 void	store_map(t_prog *mlx);
 void	init_img(t_prog *mlx);
@@ -62,6 +62,9 @@ void	store_exit(t_prog *mlx, int i, int j);
 int		animate(t_prog *mlx);
 int		ft2_strcpy(t_prog *mlx, char *str);
 void	render_loop(t_prog *mlx);
+void	check_ber(char *str);
+void	floodfill(char **map, t_prog *mlx, int p_x, int p_y, int *valid_c, int *valid_e);
+void	get_map(t_prog *mlx);
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42

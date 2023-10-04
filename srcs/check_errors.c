@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 22:53:18 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/22 18:40:32 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/09/16 20:11:13 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@ void	error_msg(int type, t_prog *mlx)
 	if (type == 1)
 		printf("Error_1 :Invalid map, not surrounded by walls or not square.\n");
 	if (type == 2)
-		printf("Error_2 :Invalid map, multiple/non players/exits/collect.\n");
+		printf
+			("Error_2 :Invalid map, multiple/non players/exits/collectables.\n");
 	if (type == 3)
 		printf("Error_3 :Invalid map, invalid characters.\n");
-	exit_game(&*mlx);
+	if (type == 4)
+	{
+		printf("Error_4 :Wrong directory.\n");
+		exit_game(&*mlx, 0);
+	}
+	exit_game(&*mlx, 1);
 }
 
 void	check_middle_walls(t_prog *mlx)
@@ -97,7 +103,7 @@ void	check_lines(t_prog *mlx)
 			else if (mlx->map[j][i] == 'C')
 				mlx->num_collect++;
 			else if (mlx->map[j][i] != '1' && mlx->map[j][i] != '0')
-				error_msg(1, &*mlx);
+				error_msg(3, &*mlx);
 			i++;
 		}
 		i = 0;

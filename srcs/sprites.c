@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 23:28:53 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/23 17:06:53 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:29:15 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	init_animate_images(t_prog *mlx)
 	i = 9;
 	width = 32;
 	height = 32;
-	mlx->img_path[9] = "img/collect_2.xpm";
-	mlx->img_path[10] = "img/collect_3.xpm";
-	mlx->img_path[11] = "img/collect_4.xpm";
-	mlx->img_path[12] = "img/collect_5.xpm";
-	mlx->img_path[13] = "img/collect_6.xpm";
-	mlx->img_path[14] = "img/collect_7.xpm";
-	mlx->img_path[15] = "img/collect_8.xpm";
+	mlx->img_path[9] = "textures/collect_2.xpm";
+	mlx->img_path[10] = "textures/collect_3.xpm";
+	mlx->img_path[11] = "textures/collect_4.xpm";
+	mlx->img_path[12] = "textures/collect_5.xpm";
+	mlx->img_path[13] = "textures/collect_6.xpm";
+	mlx->img_path[14] = "textures/collect_7.xpm";
+	mlx->img_path[15] = "textures/collect_8.xpm";
 	while (i < 16)
 	{
 		mlx->img_ptr[i] = mlx_xpm_file_to_image(mlx->mlx, mlx->img_path[i],

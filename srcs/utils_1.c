@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_1.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:52:07 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/23 17:17:47 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/09/16 20:10:01 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,24 @@ int	ft2_strcpy(t_prog *mlx, char *str)
 	return (0);
 }
 
-int	exit_game(t_prog *mlx)
+int	exit_game(t_prog *mlx, int type)
 {
-	size_t	a;
+	int	a;
 
 	a = 0;
-	mlx_clear_window(mlx->mlx, mlx->win);
-	mlx_destroy_window(mlx->mlx, mlx->win);
-	while (a < 9)
+	if (type == 1)
 	{
-		mlx_destroy_image(mlx->mlx, mlx->img_ptr[a]);
-		mlx->img_ptr[a] = NULL;
-		a++;
+		mlx_clear_window(mlx->mlx, mlx->win);
+		mlx_destroy_window(mlx->mlx, mlx->win);
+		while (a < 9)
+		{
+			mlx_destroy_image(mlx->mlx, mlx->img_ptr[a]);
+			mlx->img_ptr[a] = NULL;
+			a++;
+		}
+		mlx->win = NULL;
 	}
 	mlx->mlx = NULL;
-	mlx->win = NULL;
 	exit(0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:52:50 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/23 17:11:37 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/09/26 14:25:54 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	move_player(t_prog *mlx, int direction, int img)
 		mlx->player_y--;
 	if (mlx->map[mlx->player_y][mlx->player_x] == 'E'
 		&& mlx->collect_taken == mlx->num_collect)
-		exit_game(&*mlx);
+		exit_game(&*mlx, 1);
 	check_exit(&*mlx);
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img_ptr[img],
 		mlx->player_x * 32, mlx->player_y * 32);
@@ -73,7 +73,7 @@ void	move_player(t_prog *mlx, int direction, int img)
 int	press_key(int key, t_prog *mlx)
 {
 	if (key == KEY_ESC)
-		exit_game(&*mlx);
+		exit_game(&*mlx, 1);
 	if (mlx->map[mlx->player_y][mlx->player_x + 1] != '1'
 		&& (mlx->map[mlx->player_y][mlx->player_x + 1]
 		!= 'E' || mlx->collect_taken == mlx->num_collect) && key == KEY_D)

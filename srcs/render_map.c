@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 00:21:25 by raalonso          #+#    #+#             */
-/*   Updated: 2023/08/22 23:44:47 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/04 22:32:37 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	create_window(t_prog *mlx)
 	mlx->map_width = 0;
 	mlx->map_height = 1;
 	fd = open(mlx->map_path, O_RDONLY);
+	if (fd < 0)
+		error_msg(4, &*mlx);
 	line = get_next_line(fd);
 	mlx->map_width = ft_strlen(line) - 1;
 	free(line);
@@ -39,15 +41,15 @@ void	init_img(t_prog *mlx)
 	i = 0;
 	width = 32;
 	height = 32;
-	mlx->img_path[0] = "img/floor.xpm";
-	mlx->img_path[1] = "img/wall.xpm";
-	mlx->img_path[2] = "img/exit.xpm";
-	mlx->img_path[3] = "img/open.xpm";
-	mlx->img_path[4] = "img/player_right.xpm";
-	mlx->img_path[5] = "img/player_left.xpm";
-	mlx->img_path[6] = "img/player_down.xpm";
-	mlx->img_path[7] = "img/player_up.xpm";
-	mlx->img_path[8] = "img/collect_1.xpm";
+	mlx->img_path[0] = "textures/floor.xpm";
+	mlx->img_path[1] = "textures/wall.xpm";
+	mlx->img_path[2] = "textures/exit.xpm";
+	mlx->img_path[3] = "textures/open.xpm";
+	mlx->img_path[4] = "textures/player_right.xpm";
+	mlx->img_path[5] = "textures/player_left.xpm";
+	mlx->img_path[6] = "textures/player_down.xpm";
+	mlx->img_path[7] = "textures/player_up.xpm";
+	mlx->img_path[8] = "textures/collect_1.xpm";
 	while (i < 9)
 	{
 		mlx->img_ptr[i] = mlx_xpm_file_to_image(mlx->mlx, mlx->img_path[i],
