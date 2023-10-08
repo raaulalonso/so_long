@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 19:55:14 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/04 22:34:58 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/05 12:35:47 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,26 @@ void	get_map(t_prog *mlx)
 	fd = open(mlx->map_path, O_RDONLY);
 	if (fd < 0)
 		error_msg(4, &*mlx);
-	while (i < mlx->map_height + 1)
+	while (i < mlx->map_height)
 	{
 		j = 0;
-		while (j < mlx->map_width + 1)
+		while (j < mlx->map_width)
 		{
 			read(fd, &map[i][j], 1);
-			printf("%c", map[i][j]);
 			j++;
 		}
 		i++;
 	}
+	map[i - 1][mlx->map_width] = '1';
+	//i = 0;
 	close(fd);
-	floodfill(map, &*mlx, mlx->player_x, mlx->player_y, 0, 0);
+	/*while (i < mlx->map_height)
+	{
+		printf("\n%s\n", map[i]);
+		i++;
+	}*/
+	//printf("%s", map[2]);
+	floodfill(map, &*mlx, mlx->player_x + 1, mlx->player_y, 0, 0);
 }
 
 void	floodfill(char **map, t_prog *mlx, int p_x, int p_y, int *valid_c, int *valid_e)
@@ -70,7 +77,7 @@ void	floodfill(char **map, t_prog *mlx, int p_x, int p_y, int *valid_c, int *val
 		valid_e++;
 	if (map[p_y][p_x] == '1')
 		return ;
-		
+
 	map[p_y][p_x] = '1';
 	floodfill(map, mlx, p_x + 1, p_y, valid_c, valid_e);
 	floodfill(map, mlx, p_x - 1, p_y, valid_c, valid_e);
