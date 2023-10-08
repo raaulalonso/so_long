@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 19:55:14 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/05 12:35:47 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/08 20:01:34 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	check_ber(char *str)
 void	get_map(t_prog *mlx)
 {
 	char	**map;
+	char	c;
 	int		fd;
 	int		i;
 	int		j;
@@ -44,49 +45,52 @@ void	get_map(t_prog *mlx)
 		i++;
 	}
 	i = 0;
+	j = 0;
 	fd = open(mlx->map_path, O_RDONLY);
-	if (fd < 0)
-		error_msg(4, &*mlx);
-	while (i < mlx->map_height)
+	c = '0';
+	while (j < mlx->map_height)
 	{
-		j = 0;
-		while (j < mlx->map_width)
+		c = '0';
+		while (i < mlx->map_width + 1)
 		{
-			read(fd, &map[i][j], 1);
-			j++;
+			read(fd, &map[j][i], 1);
+			c = map[j][i];
+			i++;
 		}
-		i++;
+		i = 0;
+		j++;
 	}
-	map[i - 1][mlx->map_width] = '1';
-	//i = 0;
 	close(fd);
-	/*while (i < mlx->map_height)
-	{
-		printf("\n%s\n", map[i]);
-		i++;
-	}*/
-	//printf("%s", map[2]);
-	floodfill(map, &*mlx, mlx->player_x + 1, mlx->player_y, 0, 0);
+	floodfill(map, &*mlx, mlx->player_x, mlx->player_y);
+	check_path(&*mlx);
 }
 
-void	floodfill(char **map, t_prog *mlx, int p_x, int p_y, int *valid_c, int *valid_e)
+void	check_path(t_prog *mlx)
 {
-	if (map[p_y][p_x] == 'C')
-		valid_c++;
-	if (map[p_y][p_x] == 'E')
-		valid_e++;
+	if (mlx->valid_c != mlx->num_collect)
+	{
+		printf("Error_5 :No valid path for collectables/exit.");
+		exit_game(&*mlx, 1);
+	}
+	if (mlx->valid_e != 1)
+	{
+		printf("Error_5 :No valid path for collectables/exit.");
+		exit_game(&*mlx, 1);
+	}
+}
+
+void	floodfill(char **map, t_prog *mlx, int p_x, int p_y)
+{
 	if (map[p_y][p_x] == '1')
 		return ;
-
-	map[p_y][p_x] = '1';
-	floodfill(map, mlx, p_x + 1, p_y, valid_c, valid_e);
-	floodfill(map, mlx, p_x - 1, p_y, valid_c, valid_e);
-	floodfill(map, mlx, p_x, p_y + 1, valid_c, valid_e);
-	floodfill(map, mlx, p_x, p_y - 1, valid_c, valid_e);
+	if (map[p_y][p_x] == 'C')
+		mlx->valid_c++;
+	if (map[p_y][p_x] == 'E')
+		mlx->valid_e++;
 	
-	if (*valid_c != mlx->num_collect || *valid_e != mlx->num_exits)
-	{
-		printf("Error_5: Map not valid.\n");
-		exit(0);
-	}
+	map[p_y][p_x] = '1';
+	floodfill(map, mlx, p_x + 1, p_y);
+	floodfill(map, mlx, p_x - 1, p_y);
+	floodfill(map, mlx, p_x, p_y + 1);
+	floodfill(map, mlx, p_x, p_y - 1);
 }

@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/04 22:05:28 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/08 19:30:54 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_program
 	void	*win;
 	char	*img_path[16];
 	void	*img_ptr[16];
+	int		valid_c;
+	int		valid_e;
 	int		map_width;
 	int		map_height;
 	int		player_x;
@@ -63,8 +65,9 @@ int		animate(t_prog *mlx);
 int		ft2_strcpy(t_prog *mlx, char *str);
 void	render_loop(t_prog *mlx);
 void	check_ber(char *str);
-void	floodfill(char **map, t_prog *mlx, int p_x, int p_y, int *valid_c, int *valid_e);
+void	floodfill(char **map, t_prog *mlx, int p_x, int p_y);
 void	get_map(t_prog *mlx);
+void	check_path(t_prog *mlx);
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
