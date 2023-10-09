@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 19:55:14 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/08 20:01:34 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/09 13:07:07 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void	check_ber(char *str)
 	i = 0;
 	while (str[i] != '\0')
 		i++;
-	
 	if ((str[i - 1] != 'r' || str[i - 2] != 'e' || str[i - 3] != 'b'
-		|| str[i - 4] != '.') || (i < 5))
+			|| str[i - 4] != '.') || (i < 5))
 	{
 		printf("Error_4 :Not a .ber file.\n");
 		exit(0);
@@ -31,11 +30,10 @@ void	check_ber(char *str)
 void	get_map(t_prog *mlx)
 {
 	char	**map;
-	char	c;
 	int		fd;
 	int		i;
 	int		j;
-	
+
 	i = 0;
 	j = 0;
 	map = malloc(sizeof(char *) * mlx->map_height + 1);
@@ -47,14 +45,11 @@ void	get_map(t_prog *mlx)
 	i = 0;
 	j = 0;
 	fd = open(mlx->map_path, O_RDONLY);
-	c = '0';
 	while (j < mlx->map_height)
 	{
-		c = '0';
 		while (i < mlx->map_width + 1)
 		{
 			read(fd, &map[j][i], 1);
-			c = map[j][i];
 			i++;
 		}
 		i = 0;
@@ -87,7 +82,6 @@ void	floodfill(char **map, t_prog *mlx, int p_x, int p_y)
 		mlx->valid_c++;
 	if (map[p_y][p_x] == 'E')
 		mlx->valid_e++;
-	
 	map[p_y][p_x] = '1';
 	floodfill(map, mlx, p_x + 1, p_y);
 	floodfill(map, mlx, p_x - 1, p_y);

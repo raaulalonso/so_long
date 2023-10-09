@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 00:21:25 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/08 18:49:44 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:46:23 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,8 @@ void	store_map(t_prog *mlx)
 {
 	int	fd;
 	int	i;
-	int		j;
-	
+
 	i = 0;
-	j = 0;
 	mlx->map = malloc(sizeof(char *) * mlx->map_height + 1);
 	while (i < mlx->map_height + 1)
 	{
