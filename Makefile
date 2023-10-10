@@ -21,3 +21,12 @@ fclean:
 	rm -rf $(OBJS) $(NAME)
 
 re: clean all
+
+sanitize_address: CFLAGS += -fsanitize=address
+sanitize_memory: CFLAGS += -fsanitize=memory
+
+sanitize_address: clean $(OBJS)
+	arch -x86_64 $(CC) $(OBJS) -o $(NAME) $(LBFLAGS)
+
+sanitize_memory: clean $(OBJS)
+	arch -x86_64 $(CC) $(OBJS) -o $(NAME) $(LBFLAGS)

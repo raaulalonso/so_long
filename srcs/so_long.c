@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:06 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/08 19:40:46 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/10 21:20:47 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,5 @@ int	main(int argc, char **argv)
 	mlx_hook(mlx.win, 17, 0, exit_game, &mlx);
 	mlx_loop_hook(mlx.mlx, animate, &mlx);
 	mlx_loop(mlx.mlx);
+	
 }

@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 00:21:25 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/09 12:46:23 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/10 21:24:26 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,14 @@ void	create_window(t_prog *mlx)
 	line = get_next_line(fd);
 	mlx->map_width = ft_strlen(line) - 1;
 	free(line);
-	while (get_next_line(fd))
+	while (line != NULL)
+	{
+		line = get_next_line(fd);
+		free(line);
 		mlx->map_height++;
+	}
+	mlx->map_height--;
+	free(line);
 	close(fd);
 	mlx->win = mlx_new_window(mlx->mlx, mlx->map_width * 32,
 			mlx->map_height * 32, "so_long");
