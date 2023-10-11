@@ -1,10 +1,10 @@
-# So_Long - A Collectibles Game
+# so_long - A Collectibles Game
 
-Welcome to So_Long, a fun and challenging game where you need to collect all the items before you can exit the map. All the textures used in the game have been hand-painted to create a unique and visually appealing experience. This game is programmed in C and is designed for macOS.
+All the textures used in the game have been hand-painted. This game is programmed in C and is designed for macOS.
 
 ## How to Play
 
-In So_Long, the objective is to navigate through a map, collect all the items, and then reach the exit to complete the level. The game comes with a set of pre-designed maps, but you can create your own custom maps to challenge yourself or others.
+In so_long, the objective is to navigate through a map, collect all the items, and then reach the exit to complete the level. The game comes with a set of pre-designed maps, but you can create your own custom maps to challenge yourself or others.
 
 ## Getting Started
 
