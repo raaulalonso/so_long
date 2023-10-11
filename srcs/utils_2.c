@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 19:55:14 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/11 09:32:30 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 18:46:56 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,11 @@ void	floodfill(char **map, t_prog *mlx, int p_x, int p_y)
 	if (map[p_y][p_x] == 'C')
 		mlx->valid_c++;
 	if (map[p_y][p_x] == 'E')
+	{
 		mlx->valid_e++;
+		map[p_y][p_x] = '1';
+		return ;
+	}
 	map[p_y][p_x] = '1';
 	floodfill(map, mlx, p_x + 1, p_y);
 	floodfill(map, mlx, p_x - 1, p_y);
