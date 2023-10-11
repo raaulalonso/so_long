@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 00:21:25 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/10 21:24:26 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 09:36:59 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,6 @@ void	store_map(t_prog *mlx)
 
 	i = 0;
 	mlx->map = malloc(sizeof(char *) * mlx->map_height + 1);
-	while (i < mlx->map_height + 1)
-	{
-		mlx->map[i] = malloc(sizeof(char) * mlx->map_width + 2);
-		i++;
-	}
 	i = 0;
 	fd = open(mlx->map_path, O_RDONLY);
 	if (fd < 0)

@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 19:55:14 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/10 21:16:25 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 09:32:30 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	check_ber(char *str)
 			|| str[i - 4] != '.') || (i < 5))
 	{
 		printf("Error_4 :Not a .ber file.\n");
-		exit(0);
+		exit_game(NULL, 1);
 	}
 }
 
@@ -57,6 +57,13 @@ void	get_map(t_prog *mlx)
 	}
 	close(fd);
 	floodfill(map, &*mlx, mlx->player_x, mlx->player_y);
+	i = 0;
+	while (i < mlx->map_height + 1)
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 	check_path(&*mlx);
 }
 
