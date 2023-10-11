@@ -6,13 +6,14 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/10 21:16:50 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:26:44 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include "../ft_printf/ft_printf.h"
 # include <mlx.h>
 # include <stdio.h>
 # include <fcntl.h>
@@ -62,12 +63,13 @@ void	check_lines(t_prog *mlx);
 void	inicialize_var(t_prog *mlx);
 void	store_exit(t_prog *mlx, int i, int j);
 int		animate(t_prog *mlx);
-int		ft2_strcpy(t_prog *mlx, char *str);
+int		get_path(t_prog *mlx, char *str);
 void	render_loop(t_prog *mlx);
 void	check_ber(char *str);
 void	floodfill(char **map, t_prog *mlx, int p_x, int p_y);
 void	get_map(t_prog *mlx);
 void	check_path(t_prog *mlx);
+void	free_mem(t_prog *mlx);
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42

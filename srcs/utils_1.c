@@ -6,13 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 16:52:07 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/11 09:33:06 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:27:19 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/so_long.h"
 
-int	ft2_strcpy(t_prog *mlx, char *str)
+int	get_path(t_prog *mlx, char *str)
 {
 	int	i;
 
@@ -34,24 +34,11 @@ int	ft2_strcpy(t_prog *mlx, char *str)
 
 int	exit_game(t_prog *mlx, int type)
 {
-	int	a;
 	int	i;
 
-	a = 0;
 	i = 0;
 	if (type == 1)
-	{
-		free(mlx->map_path);
-		mlx_clear_window(mlx->mlx, mlx->win);
-		mlx_destroy_window(mlx->mlx, mlx->win);
-		while (a < 9)
-		{
-			mlx_destroy_image(mlx->mlx, mlx->img_ptr[a]);
-			mlx->img_ptr[a] = NULL;
-			a++;
-		}
-		mlx->win = NULL;
-	}
+		free_mem(&*mlx);
 	while (i < mlx->map_height)
 	{
 		free(mlx->map[i]);

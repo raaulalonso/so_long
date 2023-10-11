@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:52:50 by raalonso          #+#    #+#             */
-/*   Updated: 2023/09/26 14:25:54 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:18:32 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	move_player(t_prog *mlx, int direction, int img)
 {
 	static int	i = 1;
 
-	printf("Moves counter: %d\n", i++);
+	ft_printf("Moves counter: %d\n", i++);
 	if (check_collectable(*&mlx, direction) == 1)
 		mlx->collect_taken++;
 	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->img_ptr[0],

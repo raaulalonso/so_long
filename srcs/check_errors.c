@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 22:53:18 by raalonso          #+#    #+#             */
-/*   Updated: 2023/09/16 20:11:13 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:23:57 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void	error_msg(int type, t_prog *mlx)
 {
 	if (type == 1)
-		printf("Error_1 :Invalid map, not surrounded by walls or not square.\n");
+		ft_printf("Error_1 :Map not surrounded by walls or not square.\n");
 	if (type == 2)
-		printf
-			("Error_2 :Invalid map, multiple/non players/exits/collectables.\n");
+		ft_printf
+			("Error_2 :There are multiple/non players/exits/collectables.\n");
 	if (type == 3)
-		printf("Error_3 :Invalid map, invalid characters.\n");
+		ft_printf("Error_3 :Invalid map, invalid characters.\n");
 	if (type == 4)
 	{
-		printf("Error_4 :Wrong directory.\n");
+		ft_printf("Error_4 :Wrong directory.\n");
 		exit_game(&*mlx, 0);
 	}
 	exit_game(&*mlx, 1);

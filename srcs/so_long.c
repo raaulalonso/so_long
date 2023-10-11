@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:06 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/11 09:35:09 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:13:32 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		printf("Error\n");
+		ft_printf("Error\n");
 		exit(0);
 	}
-	if (ft2_strcpy(&mlx, argv[1]) == 1)
+	if (get_path(&mlx, argv[1]) == 1)
 		return (0);
 	check_ber(argv[1]);
 	mlx.mlx = mlx_init();

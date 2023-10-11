@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 19:55:14 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/11 18:46:56 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 20:28:05 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	check_ber(char *str)
 	if ((str[i - 1] != 'r' || str[i - 2] != 'e' || str[i - 3] != 'b'
 			|| str[i - 4] != '.') || (i < 5))
 	{
-		printf("Error_4 :Not a .ber file.\n");
+		ft_printf("Error_5 :Not a .ber file.\n");
 		exit_game(NULL, 1);
 	}
 }
@@ -71,12 +71,12 @@ void	check_path(t_prog *mlx)
 {
 	if (mlx->valid_c != mlx->num_collect)
 	{
-		printf("Error_5 :No valid path for collectables/exit.");
+		ft_printf("Error_6 :No valid path for collectables/exit.");
 		exit_game(&*mlx, 1);
 	}
 	if (mlx->valid_e != 1)
 	{
-		printf("Error_5 :No valid path for collectables/exit.");
+		ft_printf("Error_6 :No valid path for collectables/exit.");
 		exit_game(&*mlx, 1);
 	}
 }
@@ -98,4 +98,21 @@ void	floodfill(char **map, t_prog *mlx, int p_x, int p_y)
 	floodfill(map, mlx, p_x - 1, p_y);
 	floodfill(map, mlx, p_x, p_y + 1);
 	floodfill(map, mlx, p_x, p_y - 1);
+}
+
+void	free_mem(t_prog *mlx)
+{
+	int	i;
+
+	i = 0;
+	free(mlx->map_path);
+	mlx_clear_window(mlx->mlx, mlx->win);
+	mlx_destroy_window(mlx->mlx, mlx->win);
+	while (i < 9)
+	{
+		mlx_destroy_image(mlx->mlx, mlx->img_ptr[i]);
+		mlx->img_ptr[i] = NULL;
+		i++;
+	}
+	mlx->win = NULL;
 }
