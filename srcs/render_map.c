@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 00:21:25 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/11 20:19:09 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 21:43:58 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	store_map(t_prog *mlx)
 
 	i = 0;
 	mlx->map = malloc(sizeof(char *) * mlx->map_height + 1);
+	if (!mlx->map)
+		exit_game(&*mlx, 1);
 	i = 0;
 	fd = open(mlx->map_path, O_RDONLY);
 	if (fd < 0)

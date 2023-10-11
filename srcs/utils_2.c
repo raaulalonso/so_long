@@ -6,42 +6,18 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 19:55:14 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/11 20:28:05 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 21:31:07 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/so_long.h"
 
-void	check_ber(char *str)
+char	**read_map(t_prog *mlx, char **map)
 {
 	int	i;
+	int	j;
+	int	fd;
 
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	if ((str[i - 1] != 'r' || str[i - 2] != 'e' || str[i - 3] != 'b'
-			|| str[i - 4] != '.') || (i < 5))
-	{
-		ft_printf("Error_5 :Not a .ber file.\n");
-		exit_game(NULL, 1);
-	}
-}
-
-void	get_map(t_prog *mlx)
-{
-	char	**map;
-	int		fd;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	map = malloc(sizeof(char *) * mlx->map_height + 1);
-	while (i < mlx->map_height + 1)
-	{
-		map[i] = malloc(sizeof(char) * mlx->map_width + 2);
-		i++;
-	}
 	i = 0;
 	j = 0;
 	fd = open(mlx->map_path, O_RDONLY);
@@ -57,12 +33,31 @@ void	get_map(t_prog *mlx)
 	}
 	close(fd);
 	floodfill(map, &*mlx, mlx->player_x, mlx->player_y);
+	return (map);
+}
+
+void	get_map(t_prog *mlx)
+{
+	char	**map;
+	int		i;
+	int		j;
+
 	i = 0;
+	j = 0;
+	map = malloc(sizeof(char *) * mlx->map_height + 1);
+	if (!map)
+		exit_game(&*mlx, 1);
 	while (i < mlx->map_height + 1)
 	{
-		free(map[i]);
+		map[i] = malloc(sizeof(char) * mlx->map_width + 2);
+		if (!map[i])
+			exit_game(&*mlx, 1);
 		i++;
 	}
+	map = read_map(&*mlx, map);
+	i = 0;
+	while (++i <= mlx->map_height + 1)
+		free(map[i - 1]);
 	free(map);
 	check_path(&*mlx);
 }
@@ -105,7 +100,6 @@ void	free_mem(t_prog *mlx)
 	int	i;
 
 	i = 0;
-	free(mlx->map_path);
 	mlx_clear_window(mlx->mlx, mlx->win);
 	mlx_destroy_window(mlx->mlx, mlx->win);
 	while (i < 9)

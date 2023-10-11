@@ -6,11 +6,26 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:16:06 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/11 20:13:32 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/11 21:37:32 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/so_long.h"
+
+void	check_ber(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	if ((str[i - 1] != 'r' || str[i - 2] != 'e' || str[i - 3] != 'b'
+			|| str[i - 4] != '.') || (i < 5))
+	{
+		ft_printf("Error_5 :Not a .ber file.\n");
+		exit(0);
+	}
+}
 
 int	main(int argc, char **argv)
 {
@@ -18,7 +33,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("Error\n");
+		ft_printf("Error_7 :Should include only map path.\n");
 		exit(0);
 	}
 	if (get_path(&mlx, argv[1]) == 1)
