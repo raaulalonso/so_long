@@ -1,4 +1,4 @@
-# so_long - A Collectibles Game
+# - - so_long - -
 
 All the textures used in the game have been hand-painted. This game is programmed in C and is designed for macOS.
 
