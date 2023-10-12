@@ -62,3 +62,9 @@ If your custom map violates any of these rules, the game will provide a personal
 
 ## Screenshots
 
+![Demo GIF](https://github.com/Apeslx/so_long/blob/main/screenshots/screenrecording1.mov)
+![Demo IMG_1](https://github.com/Apeslx/so_long/blob/main/screenshots/screenshoot1.png)
+![Demo IMG_1](https://github.com/Apeslx/so_long/blob/main/screenshots/screenshoot2.png)
+
+
+
