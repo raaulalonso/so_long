@@ -56,7 +56,7 @@ If your custom map violates any of these rules, the game will provide a personal
 
 ## Gameplay
 
-- Move the player (P) using the arrow keys.
+- Move the player (P) using WSAD.
 - Collect all the collectibles (C).
 - Reach the exit (E) to complete the level.
 
