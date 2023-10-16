@@ -1,6 +1,6 @@
 # so_long
 
-All the textures used in the game have been hand-painted. This game is programmed in C and is designed for macOS.
+All the textures used in the game have been hand-painted. This game is programmed in C and is designed for macOS(Intel).
 
 ## How to Play
 
