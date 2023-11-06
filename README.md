@@ -21,7 +21,7 @@ Before you can start playing so_long, make sure you have the following prerequis
 1. Clone the so_song repository to your local machine:
 
    ```shell
-   git clone https://github.com/yourusername/so-long.git so_long
+   git clone https://github.com/Apeslx/so_long.git so_long
 2. Change your current working directory to the project folder:
    
    ```shell
