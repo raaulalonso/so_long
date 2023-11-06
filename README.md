@@ -1,5 +1,11 @@
 # so_long
 
+ [![Intro](https://img.shields.io/badge/Cursus-So_long-success?style=for-the-badge&logo=42)](https://github.com/Apeslx/so_long)
+ 
+ [![Stars](https://img.shields.io/github/stars/Apeslx/so_long?color=ffff00&label=Stars&logo=Stars&style=?style=flat)](https://github.com/Apeslx/so_long)
+ [![Size](https://img.shields.io/github/repo-size/Apeslx/so_long?color=blue&label=Size&logo=Size&style=?style=flat)](https://github.com/Apeslx/so_long)
+ [![Activity](https://img.shields.io/github/last-commit/Apeslx/so_long?color=red&label=Last%20Commit&style=flat)](https://github.com/Apeslx/so_long)
+
 All the textures used in the game have been hand-painted. This game is programmed in C and is designed for macOS(Intel).
 
 ## How to Play
