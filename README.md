@@ -1,10 +1,10 @@
 # so_long
 
- [![Intro](https://img.shields.io/badge/Cursus-So_long-success?style=for-the-badge&logo=42)](https://github.com/Apeslx/so_long)
+ [![Intro](https://img.shields.io/badge/Cursus-So_long-success?style=for-the-badge&logo=42)](https://github.com/raaulalonso/so_long)
  
- [![Stars](https://img.shields.io/github/stars/Apeslx/so_long?color=ffff00&label=Stars&logo=Stars&style=?style=flat)](https://github.com/Apeslx/so_long)
- [![Size](https://img.shields.io/github/repo-size/Apeslx/so_long?color=blue&label=Size&logo=Size&style=?style=flat)](https://github.com/Apeslx/so_long)
- [![Activity](https://img.shields.io/github/last-commit/Apeslx/so_long?color=red&label=Last%20Commit&style=flat)](https://github.com/Apeslx/so_long)
+ [![Stars](https://img.shields.io/github/stars/raaulalonso/so_long?color=ffff00&label=Stars&logo=Stars&style=?style=flat)](https://github.com/raaulalonso/so_long)
+ [![Size](https://img.shields.io/github/repo-size/raaulalonso/so_long?color=blue&label=Size&logo=Size&style=?style=flat)](https://github.com/raaulalonso/so_long)
+ [![Activity](https://img.shields.io/github/last-commit/raaulalonso/so_long?color=red&label=Last%20Commit&style=flat)](https://github.com/raaulalonso/so_long)
 
 All the textures used in the game have been hand-painted. This game is programmed in C and is designed for macOS(Intel).
 
@@ -27,7 +27,7 @@ Before you can start playing so_long, make sure you have the following prerequis
 1. Clone the so_song repository to your local machine:
 
    ```shell
-   git clone https://github.com/Apeslx/so_long.git so_long
+   git clone https://github.com/raaulalonso/so_long.git so_long
 2. Change your current working directory to the project folder:
    
    ```shell
@@ -68,9 +68,9 @@ If your custom map violates any of these rules, the game will provide a personal
 
 ## Screenshots
 
-![Demo GIF](https://github.com/Apeslx/so_long/blob/main/screenshots/screenrecording1.gif)
-![Demo IMG_1](https://github.com/Apeslx/so_long/blob/main/screenshots/screenshoot1.png)
-![Demo IMG_1](https://github.com/Apeslx/so_long/blob/main/screenshots/screenshoot2.png)
+![Demo GIF](https://github.com/raaulalonso/so_long/blob/main/screenshots/screenrecording1.gif)
+![Demo IMG_1](https://github.com/raaulalonso/so_long/blob/main/screenshots/screenshoot1.png)
+![Demo IMG_1](https://github.com/raaulalonso/so_long/blob/main/screenshots/screenshoot2.png)
 
 
 
